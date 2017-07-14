@@ -13,7 +13,7 @@ import { NewBucketComponent } from './new-bucket/new-bucket.component';
 import { EditBucketComponent } from './edit-bucket/edit-bucket.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdToolbarModule, MdButtonModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdInputModule} from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -44,7 +44,8 @@ const appRoutes: Routes = [
     ),
     BrowserAnimationsModule,
     MdToolbarModule,
-    MdButtonModule
+    MdButtonModule,
+    MdInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
