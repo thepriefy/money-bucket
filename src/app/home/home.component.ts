@@ -8,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   bucket_list = [
     {
-      'name' : 'Bucket 1'
+      'name' : 'Bucket 1',
+      'id' : 1
     },
     {
-      'name' : 'Bucket 2'
+      'name' : 'Bucket 2',
+      'id' : 2
     }
   ];
   constructor() { }

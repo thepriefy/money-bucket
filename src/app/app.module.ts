@@ -12,6 +12,7 @@ import { BucketListComponent } from './home/bucket-list/bucket-list.component';
 import { NewBucketComponent } from './new-bucket/new-bucket.component';
 import { EditBucketComponent } from './edit-bucket/edit-bucket.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BucketDetailComponent } from './bucket-detail/bucket-detail.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdToolbarModule, MdButtonModule, MdInputModule} from '@angular/material';
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'new-bucket', component: NewBucketComponent },
   { path: 'edit-bucket/:id', component: EditBucketComponent },
+  { path: 'bucket-detail/:id', component: BucketDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     BucketListComponent,
     NewBucketComponent,
     EditBucketComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BucketDetailComponent
   ],
   imports: [
     BrowserModule,
