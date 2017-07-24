@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './auth.service';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BucketDetailComponent } from './bucket-detail/bucket-detail.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdToolbarModule, MdButtonModule, MdInputModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdInputModule, MdGridListModule} from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -41,6 +46,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     FormsModule,
     HttpModule,
     RouterModule.forRoot(
@@ -50,9 +58,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MdToolbarModule,
     MdButtonModule,
-    MdInputModule
+    MdInputModule,
+    MdGridListModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

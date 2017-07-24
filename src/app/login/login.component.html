@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<div>
+  <md-toolbar color="primary">
+    <span class="width-100-percent text-center">Money Bucket</span>
+  </md-toolbar>
+  <div style="height: 100px;">
+    <p class="text-center">Logo</p>
+  </div>
+  <div class="padding-all-10">
+    <md-input-container class="width-100-percent">
+      <input mdInput type="email" placeholder="Email" [(ngModel)]="email">
+    </md-input-container>
+    <md-input-container class="width-100-percent">
+      <input mdInput type="password" placeholder="Password" [(ngModel)]="password">
+    </md-input-container>
+    <button md-raised-button class="width-100-percent margin-top-bottom-10" (click)="login()" [disabled]="!email || !password">Login</button>
+
+    <p class="text-center">Not have an account? <span class="text-link" routerLink="/register">Register!</span></p>
+    <p class="text-center">Or <span class="text-link" routerLink="/home">Forget Password?</span></p>
+  </div>
+</div>

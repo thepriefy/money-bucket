@@ -10,6 +10,11 @@
   text-align: center;
 }
 
+.text-link {
+  color: blue;
+  text-decoration: underline;
+}
+
 .padding-all-10 {
   padding: 10px !important;
 }

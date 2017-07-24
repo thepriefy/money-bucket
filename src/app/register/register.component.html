@@ -1,3 +1,24 @@
-<p>
-  register works!
-</p>
+<div>
+  <md-toolbar color="primary">
+    <span class="width-100-percent text-center">Money Bucket</span>
+  </md-toolbar>
+  <h3 class="text-center">Register</h3>
+  <div class="padding-all-10">
+    <md-input-container class="width-100-percent">
+      <input mdInput type="text" placeholder="Display name" [(ngModel)]="displayName" >
+    </md-input-container>
+    <md-input-container class="width-100-percent">
+      <input mdInput type="email" placeholder="Email" [(ngModel)]="email" >
+    </md-input-container>
+    <md-input-container class="width-100-percent">
+      <input mdInput #pwd type="password" placeholder="Password" [(ngModel)]="password">
+      <md-hint align="start"><strong>At least 6 characters</strong> </md-hint>
+      <md-hint align="end" ngStyle="">{{pwd.value.length}}</md-hint>
+    </md-input-container>
+    <md-input-container class="width-100-percent">
+      <input mdInput type="password" placeholder="Re-input Password" [(ngModel)]="rePassword">
+    </md-input-container>
+    <button md-raised-button class="width-100-percent margin-top-bottom-10" (click)="signup()" [disabled]="!email || !password || !rePassword || !(password === rePassword)">Register</button>
+    <p class="text-center"><span class="text-link" routerLink="/login">Back to login</span></p>
+  </div>
+</div>
