@@ -1,13 +1,37 @@
-<div>
-  <md-toolbar color="primary">
-    <i class="material-icons">menu</i>
-    <span class="width-100-percent text-center">Money Bucket</span>
-    <i class="material-icons">settings</i>
-  </md-toolbar>
-  <div class="width-100-percent">
-    <button md-button class="width-100-percent" style="height: 50px;" routerLink="/new-bucket"><i class="material-icons">add</i> Add new bucket</button>
+<!--<div>-->
+  <!--<md-toolbar color="primary">-->
+    <!--<i class="material-icons">menu</i>-->
+    <!--<span class="width-100-percent text-center">Money Bucket</span>-->
+    <!--<i class="material-icons">settings</i>-->
+  <!--</md-toolbar>-->
+  <!--<div class="width-100-percent">-->
+    <!--<button md-button class="width-100-percent" style="height: 50px;" routerLink="/new-bucket"><i class="material-icons">add</i> Add new bucket</button>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="width-100-percent" style="border-top: 1px solid black;">-->
+  <!--<app-bucket-list *ngFor="let item of bucket_list" [bucket_name]="item.name" routerLink="/bucket-detail/{{item.id}}"></app-bucket-list>-->
+<!--</div>-->
+
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <div class="padding-all-10" (click)="logout()">
+      <p>Sign out</p>
+    </div>
+  </md-sidenav>
+
+  <div>
+    <md-toolbar color="primary">
+      <i class="material-icons" (click)="sidenav.open()">menu</i>
+      <span class="width-100-percent text-center">Money Bucket</span>
+      <i class="material-icons">settings</i>
+    </md-toolbar>
+    <div class="width-100-percent">
+      <button md-button class="width-100-percent" style="height: 50px;" routerLink="/new-bucket"><i class="material-icons">add</i> Add new bucket</button>
+    </div>
   </div>
-</div>
-<div class="width-100-percent" style="border-top: 1px solid black;">
-  <app-bucket-list *ngFor="let item of bucket_list" [bucket_name]="item.name" routerLink="/bucket-detail/{{item.id}}"></app-bucket-list>
-</div>
+  <div class="width-100-percent" style="border-top: 1px solid black;">
+    <app-bucket-list *ngFor="let item of bucket_list" [bucket_name]="item.name" routerLink="/bucket-detail/{{item.id}}"></app-bucket-list>
+  </div>
+
+</md-sidenav-container>

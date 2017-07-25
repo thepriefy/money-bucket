@@ -30,10 +30,12 @@ export class AuthService {
           this.displayName = value.displayName;
         }, err2 => {
           console.log('Update display name fail:', err2.message);
+          console.log(err2);
         });
       })
       .catch(err => {
         console.log('Something went wrong:' , err.message);
+        console.log(err);
       });
   }
 
@@ -48,6 +50,7 @@ export class AuthService {
       })
       .catch(err => {
         console.log('Something went wrong:', err.message);
+        console.log(err);
       });
   }
 
@@ -55,6 +58,7 @@ export class AuthService {
     this.firebaseAuth
       .auth
       .signOut();
+    location.pathname = '/login';
   }
 
 }

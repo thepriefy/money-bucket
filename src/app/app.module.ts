@@ -20,7 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BucketDetailComponent } from './bucket-detail/bucket-detail.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdToolbarModule, MdButtonModule, MdInputModule, MdGridListModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdInputModule, MdGridListModule, MdSidenavModule} from '@angular/material';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -59,7 +59,8 @@ const appRoutes: Routes = [
     MdToolbarModule,
     MdButtonModule,
     MdInputModule,
-    MdGridListModule
+    MdGridListModule,
+    MdSidenavModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
