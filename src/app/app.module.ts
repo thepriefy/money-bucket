@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
+import { ManageBucketService } from './manage-bucket.service';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
     MdGridListModule,
     MdSidenavModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, ManageBucketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

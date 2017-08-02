@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { ManageBucketService } from '../manage-bucket.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +19,14 @@ export class HomeComponent implements OnInit {
       'id' : 2
     }
   ];
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public manageBucketService: ManageBucketService, private router: Router) { }
 
   ngOnInit() {
   }
 
   logout() {
+    localStorage.clear();
     this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

@@ -5,9 +5,9 @@
 </div>
 <div class="padding-all-10">
   <md-input-container class="width-100-percent">
-    <input mdInput #bName maxlength="30" type="text" placeholder="Bucket Name">
+    <input mdInput #bName maxlength="30" type="text" placeholder="Bucket Name" [(ngModel)]="bucketName">
     <md-hint align="end">{{bName.value.length}} / 30</md-hint>
   </md-input-container>
-  <button md-raised-button class="width-100-percent margin-top-bottom-10">Save</button>
+  <button md-raised-button class="width-100-percent margin-top-bottom-10" (click)="createBucket()">Save</button>
   <button md-raised-button class="width-100-percent margin-top-bottom-10" routerLink="/home">Cancel</button>
 </div>
