@@ -19,9 +19,12 @@ export class HomeComponent implements OnInit {
       'id' : 2
     }
   ];
-  constructor(public authService: AuthService, public manageBucketService: ManageBucketService, private router: Router) { }
+
+  bucket_list_2: any;
+  constructor(private authService: AuthService, private manageBucketService: ManageBucketService, private router: Router) { }
 
   ngOnInit() {
+    this.bucket_list_2 = this.manageBucketService.getBucketList();
   }
 
   logout() {

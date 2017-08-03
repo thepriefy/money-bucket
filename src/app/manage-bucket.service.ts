@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 @Injectable()
 export class ManageBucketService {
   // item: FirebaseObjectObservable<any>;
-  // bucket_item: FirebaseObjectObservable<any[]>;
+  bucket_item: FirebaseObjectObservable<any[]>;
   // current_user: Object;
   // user_bucket_path = '/Users';
   current_uid: string;
@@ -19,7 +19,7 @@ export class ManageBucketService {
   bucket_owners_list: FirebaseListObservable<any[]>;
   bucket_path = '/Buckets';
   bucket_owner_path = '/Bucket_owner';
-
+  queryObservable: any;
 
   constructor(public db: AngularFireDatabase, private firebaseAuth: AngularFireAuth, private router: Router) {
     this.current_uid = localStorage.getItem('uid');
@@ -36,12 +36,29 @@ export class ManageBucketService {
     const bucket_key = b_result.key;
 
     /* add bucket owner */
-    const o_result = this.bucket_owners_list.push({ bucket_key: bucket_key, uid: this.current_uid});
+    const o_result = this.bucket_owners_list.push({ bucket_key: bucket_key, name: bucket_name, uid: this.current_uid});
 
     manageC.router.navigate(['/home']);
   }
 
-  getBucketDetail() {}
+  getBucketList() {
+    this.queryObservable = this.db.list(this.bucket_owner_path, {
+      query: {
+        orderByChild: 'uid',
+        equalTo: this.current_uid
+      }
+    });
+
+    return this.queryObservable;
+  }
+
+  getBucketDetail(bucket_id) {
+    this.bucket_item = this.db.object(this.bucket_path + '/' + bucket_id);
+
+    return this.bucket_item;
+  }
+
+  getBucketRecords() {}
 
   editBucket() {}
 
