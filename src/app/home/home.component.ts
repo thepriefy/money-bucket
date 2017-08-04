@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { ManageBucketService } from '../manage-bucket.service';
 import {Router} from '@angular/router';
+import {FirebaseListObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-home',
@@ -9,22 +10,12 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  bucket_list = [
-    {
-      'name' : 'Bucket 1',
-      'id' : 1
-    },
-    {
-      'name' : 'Bucket 2',
-      'id' : 2
-    }
-  ];
+  bucket_list: FirebaseListObservable<any[]>;
 
-  bucket_list_2: any;
   constructor(private authService: AuthService, private manageBucketService: ManageBucketService, private router: Router) { }
 
   ngOnInit() {
-    this.bucket_list_2 = this.manageBucketService.getBucketList();
+    this.bucket_list = this.manageBucketService.getBucketList();
   }
 
   logout() {

@@ -31,11 +31,11 @@
     </div>
   </div>
   <div class="width-100-percent" style="border-top: 1px solid black;">
-    <app-bucket-list *ngFor="let item of bucket_list_2 | async" [bucket_name]="item.name" routerLink="/bucket-detail/{{item.$key}}"></app-bucket-list>
+    <app-bucket-list *ngFor="let item of bucket_list | async" [bucket_name]="item.name" routerLink="/bucket-detail/{{item.bucket_key}}"></app-bucket-list>
   </div>
 
   <ul style="display: none;">
-    <li *ngFor="let item of bucket_list_2 | async">
+    <li *ngFor="let item of bucket_list | async">
       {{ item | json }}
     </li>
   </ul>
